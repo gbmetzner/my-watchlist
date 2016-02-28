@@ -1,0 +1,6 @@
+<div id="messages" class="messages center-block text-center">
+    <uib-alert data-ng-repeat="alert in alerts" dismiss-on-timeout='3000' type="{{alert.type}}"
+               close="closeAlert($index)">
+        {{alert.msg}}
+    </uib-alert>
+</div>

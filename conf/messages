@@ -1,0 +1,12 @@
+## General
+error.general = Something went wrong, sorry.
+error.invalid.json = Invalid Json Format.
+
+## Login
+login.invalid.credentials = Username or password are incorrect!
+login.logged.out = You logged out successfully!
+
+## Users
+msg.user.created = User has been created!
+email.not.available = Email address not available. Please choose another one!
+

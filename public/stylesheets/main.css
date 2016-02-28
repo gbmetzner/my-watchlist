@@ -1,0 +1,87 @@
+html, body {
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+body {
+    padding-top: 70px;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+.container-position {
+    top: 60px;
+    position: relative;
+}
+
+.form-group .help-block {
+    display: none;
+}
+
+.form-group.has-error .help-block {
+    display: block;
+}
+
+.footer {
+    top: 60px;
+    position: relative;
+    background-color: #f5f5f5;
+    height: 50px;
+}
+
+.cover {
+    text-align: center;
+}
+
+.deckgrid[deckgrid]::before {
+    content: '4 .column.column-1-4';
+    font-size: 0;
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid .column-1-4 {
+    width: 25%;
+}
+
+.thumbnail {
+  position: relative;
+  height: 314px;
+}
+
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 304px;
+  width: 200px;
+  height:auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+.thumbnail img.portrait {
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.green-glyphicon {
+    color:green;
+}
+
+.red-glyphicon {
+    color:red;
+}
+
+.messages {
+    width: 60%;
+}

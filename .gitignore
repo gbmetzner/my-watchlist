@@ -1,0 +1,6 @@
+logs
+target
+/.idea
+conf/db.conf
+public/javascripts/*
+.DS_Store
