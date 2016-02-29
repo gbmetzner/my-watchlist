@@ -8,5 +8,7 @@ angular.module('users.routes', ['users.controllers'])
             .when('/views/login', {
                 templateUrl: '/partials/login/login.html',
                 controller: 'LoginController'
+            }).when('/', {
+                templateUrl: '/partials/home/home.html'
             });
     }]);

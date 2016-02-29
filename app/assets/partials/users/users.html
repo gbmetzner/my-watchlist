@@ -3,7 +3,7 @@
     <fieldset>
 
         <legend>
-                <small>{{legend}}</small>
+                <small>Create a new account</small>
         </legend>
 
         <form name="userForm" class="form-horizontal" novalidate>
@@ -66,7 +66,7 @@
 
                 <div class="col-sm-3">
                     <input id="confirmPassword" name="confirmPassword" type="password" data-ng-model="user.confirmPassword"
-                           placeholder="password..." required class="form-control"
+                           placeholder="confirm password..." required class="form-control"
                            pattern=".{4,}" title="Please type at least 4 characters"
                            data-compare-to="user.password">
                     <span data-ng-messages="userForm.confirmPassword.$error">

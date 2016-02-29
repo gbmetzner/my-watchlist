@@ -10,8 +10,6 @@ angular.module('users.controllers', ['users.services'])
                 confirmPassword: ""
             };
 
-            $scope.legend = "Create a new account";
-
             $scope.save = function (userForm) {
                 if (userForm.$valid) {
                     UserService.save($scope.user).then(function (response) {

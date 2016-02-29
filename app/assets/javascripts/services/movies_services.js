@@ -1,4 +1,4 @@
-angular.module('home.services', []).factory('HomeService', ['$http', function ($http) {
+angular.module('movies.services', []).factory('MovieService', ['$http', function ($http) {
     return {
         search: function (title) {
             return $http.get('/api/omdb?title=' + title);

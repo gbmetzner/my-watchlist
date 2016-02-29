@@ -5,15 +5,3 @@ angular.module('users.services', []).factory('UserService', ['$http', function (
         }
     }
 }]);
-
-angular.module('users.autServices', []).factory('AuthService', ['$http', '$location',function ($http, $location) {
-    return {
-        isLogged: function(){
-                   $http.get('/api/logged').then(function(response){
-
-                        },function(response){
-                            $location.path("/")
-                        });
-        }
-    }
-}]);
