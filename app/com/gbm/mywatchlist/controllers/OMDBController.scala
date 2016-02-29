@@ -18,7 +18,7 @@ class OMDBController @Inject()(val messagesApi: MessagesApi, val ws: WSClient) e
   def search = Action.async {
     request =>
 
-      import com.gbm.mywatchlist.utils.json.MovieParser._
+      import com.gbm.mywatchlist.utils.json.MovieParser.{readsOMDB, movieWrites}
 
       val title = request.getQueryString("title").getOrElse("Batman")
 

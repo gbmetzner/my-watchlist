@@ -9,4 +9,9 @@ login.logged.out = You logged out successfully!
 ## Users
 msg.user.created = User has been created!
 email.not.available = Email address not available. Please choose another one!
+user.not.logged = You should be logged to access this resource!
+
+## Movies
+msg.movie.added = Movie has been added to your Watchlist!
+msg.movie.deleted = Movie has been removed from your Watchlist!
 

@@ -16,6 +16,9 @@ POST          /api/users                                       com.gbm.mywatchli
 # OMDB
 GET          /api/omdb                                          com.gbm.mywatchlist.controllers.OMDBController.search
 
+# Watchlist
+POST        /api/watchlist                                         com.gbm.mywatchlist.controllers.WatchlistController.add
+
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file                                    controllers.Assets.versioned(path="/public", file: Asset)
 

@@ -28,8 +28,8 @@ trait Security extends LazyLogging {
   def HasTokenAsync[A](p: BodyParser[A] = parse.anyContent)(f: String => Id => Request[A] => Future[Result]): Action[A] =
     Action.async(p) {
       request =>
-        logger debug s"HasToken = $request"
         val maybeToken = request.headers.get(AuthTokenHeader).orElse(request.getQueryString(AuthTokenUrlKey))
+        logger debug s"HasToken = $request - $maybeToken"
         maybeToken flatMap {
           token => Cache.getAs[Id](token) map {
             id => Cache.set(token, id, cacheDuration)
@@ -39,7 +39,8 @@ trait Security extends LazyLogging {
     }
 
   def fromCache(token: String): Option[Id] = Cache.getAs[Id](token) match {
-    case Some(id) => Cache.set(token, id, cacheDuration)
+    case Some(id) =>
+      Cache.set(token, id, cacheDuration)
       Some(id)
     case None => None
   }
@@ -47,6 +48,7 @@ trait Security extends LazyLogging {
   implicit class ResultWithToken(result: Result) {
 
     def withToken(token: (String, Id)): Result = {
+      logger debug s"Set to cache $token"
       Cache.set(token._1, token._2, cacheDuration)
       result.withCookies(Cookie(AuthTokenCookieKey, token._1, None, httpOnly = false))
     }

@@ -1,8 +1,9 @@
 <div class="text-center">
-    <a id="btnUpdate" data-ng-href="#">
+    <a data-ng-href="#" data-ng-click="addMovie(card)">
+        <input type="hidden" value="{{card.imdbId}}" >
         <h4>{{card.title}} # {{card.year}}</h4>
-        <div >
-            <img src="" alt="Image" data-ng-src="{{card.poster}}"/>
+        <div>
+            <img src="" alt="Image" data-ng-src="{{card.poster}}" />
         </div>
     </a>
 </div>

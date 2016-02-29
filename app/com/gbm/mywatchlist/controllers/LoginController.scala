@@ -24,7 +24,6 @@ class LoginController @Inject()(val messagesApi: MessagesApi) extends BaseContro
 
   def login = Action.async(parse.json) {
     request =>
-
       request.body.validate[Login].map {
         login =>
           logger debug s"Login with = $login"

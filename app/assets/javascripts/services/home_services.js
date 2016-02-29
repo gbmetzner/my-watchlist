@@ -5,6 +5,9 @@ angular.module('home.services', []).factory('HomeService', ['$http', function ($
         },
         watchList: function () {
             return $http.get('/api/mywatchlist');
+        },
+        addMovie: function (movie) {
+            return $http.post('/api/watchlist', movie);
         }
     };
 }]);

@@ -7,10 +7,9 @@ angular.module('login.directives', []).directive('appHeader', function() {
   return {
     restrict: 'E',
     link: function (scope, element, attrs) {
-        console.log('Aqui');
       attrs.$observe('isauthenticated', function (newValue, oldValue) {
-        if (bool[newValue]) { scope.headerUrl = '/assets/partials/login/logged.html'; }
-        else { scope.headerUrl = '/assets/partials/login/not_logged.html'; }
+        if (bool[newValue]) { scope.headerUrl = '/partials/login/logged.html'; }
+        else { scope.headerUrl = '/partials/login/not_logged.html'; }
       });
     },
     template: '<div data-ng-include="headerUrl"></div>'

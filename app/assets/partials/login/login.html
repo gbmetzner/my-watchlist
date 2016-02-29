@@ -9,7 +9,7 @@
         <form name="loginForm" class="form-horizontal" novalidate>
 
             <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">First name</label>
+                <label for="email" class="col-sm-2 control-label">Email</label>
 
                 <div class="col-sm-3">
                     <input id="email" name="email" type="email" data-ng-model="loginData.email"
@@ -26,7 +26,7 @@
                 <div class="col-sm-3">
                     <input id="password" name="password" type="password" data-ng-model="loginData.password"
                            required class="form-control" >
-                    <span data-ng-show="userForm.password.$invalid">
+                    <span data-ng-show="loginForm.password.$invalid">
                         <small>Please enter a valid password</small>
                     </span>
                 </div>

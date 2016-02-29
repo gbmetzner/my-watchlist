@@ -1,11 +1,12 @@
 angular.module('home.controllers', ['home.services', 'ngCookies'])
-    .controller('HomeController', ['$scope', '$cookies', '$location', '$timeout', 'HomeService',
-        function ($scope, $cookies, $location, $timeout, HomeService, ngDialog) {
+    .controller('HomeController', ['$scope', '$cookies', '$location', '$timeout', 'ngDialog','HomeService',
+        function ($scope, $cookies, $location, $timeout, ngDialog, HomeService) {
 
             $scope.watchlist = [];
 
+            $scope.alerts = [];
+
             $scope.$watch('movie', function (newVal) {
-                console.log(newVal);
                if (newVal) {
                    if (timeout) $timeout.cancel(timeout);
                    timeout = $timeout(function () {
@@ -18,12 +19,20 @@ angular.module('home.controllers', ['home.services', 'ngCookies'])
 
            var timeout;
 
-            var search = function(title){
+           var search = function(title){
                 HomeService.search(title).then(function (response) {
                         $scope.watchlist = response.data.movies;
                     }, function (response) {
                         console.log(response);
                     });
+            }
+
+            $scope.addMovie = function(movie){
+                HomeService.addMovie(movie).then(function (response) {
+                        $scope.alerts.push({type: 'success', msg: response.data.msg});
+                    }, function (response) {
+                        console.log(response);
+                });
             }
 
         }]);

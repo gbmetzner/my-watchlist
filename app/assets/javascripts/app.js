@@ -4,15 +4,14 @@ var myWatchlist = angular.module('myWatchlist',
         'ui.bootstrap',
         'myWatchlist.tpl',
         'akoenig.deckgrid',
+        'login.controllers',
+        'home.controllers',
         'users.controllers',
         'users.routes',
         'home.routes',
-        'login.controllers',
-        'home.controllers',
         'login.directives',
         'messages.directives',
-        'commons.directives',
-        'errors.routes',]).config(function ($provide, $httpProvider, $locationProvider) {
+        'commons.directives']).config(function ($provide, $httpProvider, $locationProvider) {
 
     $locationProvider.html5Mode({
         enabled: true,
