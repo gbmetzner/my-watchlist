@@ -4,4 +4,8 @@ angular.module('home.routes', [])
             .when('/', {
                 templateUrl: '/partials/home/home.html'
             })
+            .when('/home', {
+                templateUrl: '/partials/home/home_logged.html',
+                controller: 'HomeController'
+             })
     }]);

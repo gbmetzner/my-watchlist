@@ -17,7 +17,7 @@ import scala.concurrent.Future
 import scala.language.postfixOps
 
 /**
-  * Created by gbmetzner on 11/5/15.
+  * Created by gbmetzner on 2016-02-28.
   */
 class LoginController @Inject()(val messagesApi: MessagesApi) extends BaseController with UserComponentRegistry {
   requires: UserServiceComponent with UserRepositoryComponent =>

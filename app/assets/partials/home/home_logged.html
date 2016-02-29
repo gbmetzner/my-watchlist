@@ -1,0 +1,28 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>My Watchlist:</h2>
+                <hr>
+            </div>
+
+            <form id="watchlistForm" name="watchlistForm" class="form-horizontal">
+                <div class="form-group">
+                    <label for="movie" class="col-sm-2 control-label">Title</label>
+
+                    <div class="col-sm-3">
+                        <input id="movie" class="form-control" name="movie" type="text"
+                               data-ng-model="movie" >
+                    </div>
+                </div>
+            </form>
+
+            <div deckgrid class="deckgrid" cardTemplate="/partials/templates/movie_deck.html" source="watchlist">
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.section -->

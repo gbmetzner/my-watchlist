@@ -8,21 +8,9 @@ body {
     padding-top: 70px;
 }
 
-.nav, .pagination, .carousel, .panel-title a {
-    cursor: pointer;
-}
-
 .container-position {
     top: 60px;
     position: relative;
-}
-
-.form-group .help-block {
-    display: none;
-}
-
-.form-group.has-error .help-block {
-    display: block;
 }
 
 .footer {
@@ -32,56 +20,30 @@ body {
     height: 50px;
 }
 
-.cover {
-    text-align: center;
+.deckgrid .column-1-1 {
+    width: 100%;
 }
 
-.deckgrid[deckgrid]::before {
-    content: '4 .column.column-1-4';
-    font-size: 0;
-    visibility: hidden;
+@media screen and (max-width: 480px){
+    .deckgrid[deckgrid]::before {
+        content: '1 .column.column-1-1';
+        visibility: hidden;
+        font-size: 0
+    }
 }
 
 .deckgrid .column {
     float: left;
 }
 
+@media screen and (min-width: 480px){
+    .deckgrid[deckgrid]::before {
+        content: '4 .column.column-1-4';
+        visibility: hidden;
+        font-size: 0
+    }
+}
+
 .deckgrid .column-1-4 {
-    width: 25%;
-}
-
-.thumbnail {
-  position: relative;
-  height: 314px;
-}
-
-.thumbnail img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 304px;
-  width: 200px;
-  height:auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-}
-
-.thumbnail img.portrait {
-  width: auto;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.green-glyphicon {
-    color:green;
-}
-
-.red-glyphicon {
-    color:red;
-}
-
-.messages {
-    width: 60%;
+    width: 50%;
 }

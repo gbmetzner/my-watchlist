@@ -8,9 +8,6 @@ import org.mongodb.scala.bson.BsonString
 import play.api.libs.json.Reads._
 import play.api.libs.json._
 
-/**
-  * Created by gbmetzner on 11/6/15.
-  */
 object UserParser {
 
   private val reads: Reads[User] = new Reads[User] {
