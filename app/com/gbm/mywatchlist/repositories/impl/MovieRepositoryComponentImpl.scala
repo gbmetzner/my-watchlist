@@ -81,7 +81,21 @@ trait MovieRepositoryComponentImpl extends MovieRepositoryComponent {
 
     override def findOneBy(predicate: Predicate)(implicit format: DocumentFormat[Movie]): Future[Option[Movie]] = ???
 
-    override def findBy(predicate: Predicate)(implicit format: DocumentFormat[Movie]): Future[List[Movie]] = ???
+    override def findBy(predicate: Predicate)(implicit format: DocumentFormat[Movie]): Future[List[Movie]] = {
+      var movies = List.empty[Movie]
+      val promise: Promise[List[Movie]] = Promise()
+
+      collection.find(predicate).subscribe(new Observer[Document] {
+        override def onError(e: Throwable): Unit = promise.failure(e)
+
+        override def onComplete(): Unit = promise.success(movies)
+
+        override def onNext(result: Document): Unit =
+          movies = format.read(result) :: movies
+      })
+
+      promise.future
+    }
   }
 
 }

@@ -1,23 +1,9 @@
 html, body {
     height: 100%;
-    margin:0;
-    padding:0;
 }
 
 body {
-    padding-top: 70px;
-}
-
-.container-position {
-    top: 60px;
-    position: relative;
-}
-
-.footer {
-    top: 60px;
-    position: relative;
-    background-color: #f5f5f5;
-    height: 50px;
+    padding-top: 90px;
 }
 
 .deckgrid .column-1-1 {
@@ -29,6 +15,10 @@ body {
         content: '1 .column.column-1-1';
         visibility: hidden;
         font-size: 0
+    }
+
+    body {
+        padding-top: 95px;
     }
 }
 
@@ -46,25 +36,4 @@ body {
 
 .deckgrid .column-1-4 {
     width: 50%;
-}
-
-@media (max-width: 767px) {
-    .footer {
-        top: 60px;
-        position: relative;
-        background-color: #f5f5f5;
-        height: 50px;
-    }
-
-    .navbar-right {
-        width: 150px;
-    }
-
-    .navbar-header {
-        width: 150px;
-    }
-
-    body {
-        padding-top: 95px;
-    }
 }

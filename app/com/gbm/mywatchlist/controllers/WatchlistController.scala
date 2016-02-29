@@ -8,7 +8,9 @@ import com.gbm.mywatchlist.repositories.MovieRepositoryComponent
 import com.gbm.mywatchlist.services.MovieServiceComponent
 import com.gbm.mywatchlist.utils.json.MovieParser.{movieDocumentFormat, movieFormatter}
 import com.gbm.mywatchlist.utils.messages.Succeed
+import org.mongodb.scala.model.Filters
 import play.api.i18n.MessagesApi
+import play.api.libs.json.Json
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -29,6 +31,13 @@ class WatchlistController @Inject()(val messagesApi: MessagesApi) extends BaseCo
             case r => BadRequest(withMessage(r.message))
           }
       }.getOrElse(Future.successful(BadRequest(withMessage("error.invalid.json"))))
+  }
+
+  def watchlist = HasTokenAsync() {
+    token => user => request =>
+      movieService.findBy(Filters.eq("userId", user.id.get))(movieRepository.findBy).map {
+        movies => Ok(Json.obj("movies" -> Json.toJson(movies)))
+      }
   }
 
 }

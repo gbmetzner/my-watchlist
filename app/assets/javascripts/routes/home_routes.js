@@ -4,8 +4,11 @@ angular.module('home.routes', [])
             .when('/', {
                 templateUrl: '/partials/home/home.html'
             })
-            .when('/home', {
+            .when('/view/movies', {
                 templateUrl: '/partials/home/home_logged.html',
                 controller: 'HomeController'
-             })
+             }).when('/view/watchlist', {
+                               templateUrl: '/partials/watchlist/watchlist.html',
+                               controller: 'WatchlistController'
+                            })
     }]);

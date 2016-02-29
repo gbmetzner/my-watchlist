@@ -1,23 +1,18 @@
-angular.module('home.controllers', ['home.services', 'ngCookies'])
-    .controller('HomeController', ['$scope', '$cookies', '$location', '$timeout', 'ngDialog','HomeService',
-        function ($scope, $cookies, $location, $timeout, ngDialog, HomeService) {
+angular.module('home.controllers', ['home.services', 'users.autServices','ngCookies'])
+    .controller('HomeController', ['$scope', '$cookies', '$location', '$timeout', 'HomeService', 'AuthService',
+        function ($scope, $cookies, $location, $timeout, HomeService, AuthService) {
+
+            AuthService.isLogged();
 
             $scope.watchlist = [];
 
-            $scope.alerts = [];
-
             $scope.$watch('movie', function (newVal) {
                if (newVal) {
-                   if (timeout) $timeout.cancel(timeout);
-                   timeout = $timeout(function () {
-                       if(newVal.length > 1){
-                            search(newVal);
-                       }
-                   }, 350);
+                   if(newVal.length > 1){
+                        search(newVal);
+                   }
                }
            });
-
-           var timeout;
 
            var search = function(title){
                 HomeService.search(title).then(function (response) {
@@ -29,10 +24,25 @@ angular.module('home.controllers', ['home.services', 'ngCookies'])
 
             $scope.addMovie = function(movie){
                 HomeService.addMovie(movie).then(function (response) {
-                        $scope.alerts.push({type: 'success', msg: response.data.msg});
+                        //Add message
                     }, function (response) {
                         console.log(response);
                 });
             }
 
-        }]);
+        }]).controller('WatchlistController', ['$scope', '$cookies', 'HomeService', 'AuthService',
+                   function ($scope, $cookies, HomeService, AuthService) {
+
+                       AuthService.isLogged();
+
+                       $scope.watchlist = [];
+
+
+                       HomeService.watchList().then(function (response) {
+                             $scope.watchlist = response.data.movies;
+                           }, function (response) {
+                               console.log(response);
+                       });
+
+
+                   }]);

@@ -1,4 +1,4 @@
-angular.module('users.controllers', ['users.services', 'ngDialog'])
+angular.module('users.controllers', ['users.services'])
     .controller('NewUserController', ['$scope', '$location','UserService',
         function ($scope, $location, UserService) {
 

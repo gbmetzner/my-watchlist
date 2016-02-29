@@ -45,7 +45,7 @@ class LoginController @Inject()(val messagesApi: MessagesApi) extends BaseContro
             Ok(Json.obj("msg" -> withMessage("login.logged.out"))).discardingToken(token)
         } getOrElse {
           logger warn s"Token not found during logout."
-          BadRequest(Json.obj("msg" -> withMessage("error.general")))
+          Ok(Json.obj("msg" -> withMessage("error.general")))
         }
       }
   }

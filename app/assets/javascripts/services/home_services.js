@@ -4,7 +4,7 @@ angular.module('home.services', []).factory('HomeService', ['$http', function ($
             return $http.get('/api/omdb?title=' + title);
         },
         watchList: function () {
-            return $http.get('/api/mywatchlist');
+            return $http.get('/api/watchlist');
         },
         addMovie: function (movie) {
             return $http.post('/api/watchlist', movie);
